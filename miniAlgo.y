@@ -14,7 +14,7 @@
 
 %%
 
-S:	mc_langage mc_miniAlgo List_Declarations mc_var mc_begin mc_end	{printf("bola kachir\n"); YYACCEPT;}	
+S:	mc_langage mc_miniAlgo mc_var List_Declarations mc_begin mc_end	{printf("bola kachir\n"); YYACCEPT;}	
 	;
 
 List_Declarations: Declaration						{;}
@@ -24,14 +24,12 @@ List_Declarations: Declaration						{;}
 Declaration: Idf double_point Type semicolon		{;}
 		   ;
 
-Idf: var_name equal number		{;}
+Idf: Idf comma Idf 				{;}
+   | var_name equal number		{;}
    | var_name					{;}
    ;
 
-Type: CONST type_int 		{;} 
-	| CONST type_float		{;}
-	| CONST type_bool		{;}
-	| type_int				{;}
+Type: type_int				{;}
 	| type_float			{;}
 	| type_bool				{;}
 	;

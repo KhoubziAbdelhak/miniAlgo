@@ -1,9 +1,9 @@
-LANGAAGE miniAlgo 
+LANGAGE miniAlgo 
 VAR 
 
 bsim=33 : CONST INT;
 app : INT; 
-Kms : FLOAT; 
+Kms, chkoupiiii : FLOAT; 
 Response : BOOL;
 
 BEGIN 
