@@ -1,10 +1,11 @@
 LANGAGE miniAlgo 
 VAR 
 
-bsim=33 : CONST INT;
-app : INT; 
-Kms, chkoupiiii : FLOAT; 
-Response : BOOL;
+bism=33 : CONST INT;
+A83_n, app , reste : INT;	
+Kms, LL6, Jn5 : FLOAT; 	
+Reponse : BOOL; 
+
 
 BEGIN 
 

@@ -126,7 +126,8 @@ enum yysymbol_kind_t
   YYSYMBOL_List_Declarations = 20,         /* List_Declarations  */
   YYSYMBOL_Declaration = 21,               /* Declaration  */
   YYSYMBOL_Idf = 22,                       /* Idf  */
-  YYSYMBOL_Type = 23                       /* Type  */
+  YYSYMBOL_const_Idf = 23,                 /* const_Idf  */
+  YYSYMBOL_Type = 24                       /* Type  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -454,16 +455,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   29
+#define YYLAST   44
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  18
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  6
+#define YYNNTS  7
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  14
+#define YYNRULES  13
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  27
+#define YYNSTATES  32
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   272
@@ -514,8 +515,8 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    17,    17,    20,    21,    24,    27,    28,    29,    32,
-      33,    34,    35,    36,    37
+       0,    17,    17,    20,    21,    24,    25,    28,    29,    32,
+      33,    35,    36,    37
 };
 #endif
 
@@ -535,7 +536,7 @@ static const char *const yytname[] =
   "mc_langage", "mc_var", "mc_begin", "mc_end", "var_name", "double_point",
   "semicolon", "comma", "equal", "CONST", "type_int", "type_float",
   "type_bool", "number", "$accept", "S", "List_Declarations",
-  "Declaration", "Idf", "Type", YY_NULLPTR
+  "Declaration", "Idf", "const_Idf", "Type", YY_NULLPTR
 };
 
 static const char *
@@ -545,7 +546,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-14)
+#define YYPACT_NINF (-15)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -559,9 +560,10 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-       7,     9,    13,    10,   -14,     6,     4,     1,   -14,    -1,
-       0,    11,   -14,   -13,     6,   -14,   -14,   -10,   -14,   -14,
-     -14,    12,     8,   -14,   -14,   -14,   -14
+       4,     7,    11,     8,   -15,     6,     0,    -3,   -15,    -5,
+      -2,    -1,    10,   -15,   -14,    12,     2,    13,   -15,   -15,
+     -15,   -15,   -15,     9,   -15,    14,   -14,     0,    15,   -15,
+      17,   -15
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -570,20 +572,21 @@ static const yytype_int8 yypact[] =
 static const yytype_int8 yydefact[] =
 {
        0,     0,     0,     0,     1,     0,     8,     0,     3,     0,
-       0,     0,     4,     0,     0,     7,     2,     0,    12,    13,
-      14,     0,     6,     9,    10,    11,     5
+       0,     0,     0,     4,     0,     0,     0,     0,    10,     2,
+      11,    12,    13,     0,     8,     7,     0,     0,     9,     5,
+       0,     6
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -14,   -14,   -14,    14,    15,   -14
+     -15,   -15,   -15,    16,     3,     5,    18
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     2,     7,     8,     9,    21
+       0,     2,     7,     8,     9,    10,    23
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -591,16 +594,20 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      17,    18,    19,    20,    23,    24,    25,    11,    13,     6,
-      14,     1,     3,     4,     6,     5,    10,    15,    16,    14,
-       0,    12,    26,     0,     0,     0,     0,     0,     0,    22
+      20,    21,    22,    12,    14,     6,    15,    16,     1,    17,
+       3,     4,    11,     5,     6,    26,    18,    19,    25,    29,
+      24,    27,    28,    13,     0,    15,    17,    31,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,     0,    30
 };
 
 static const yytype_int8 yycheck[] =
 {
-      13,    14,    15,    16,    14,    15,    16,     6,     9,     8,
-      11,     4,     3,     0,     8,     5,    12,    17,     7,    11,
-      -1,     7,    10,    -1,    -1,    -1,    -1,    -1,    -1,    14
+      14,    15,    16,     6,     9,     8,    11,     9,     4,    11,
+       3,     0,    12,     5,     8,    13,    17,     7,    15,    10,
+       8,     8,    17,     7,    -1,    11,    11,    10,    -1,    -1,
+      -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,
+      -1,    -1,    -1,    -1,    26
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
@@ -608,22 +615,23 @@ static const yytype_int8 yycheck[] =
 static const yytype_int8 yystos[] =
 {
        0,     4,    19,     3,     0,     5,     8,    20,    21,    22,
-      12,     6,    21,     9,    11,    17,     7,    13,    14,    15,
-      16,    23,    22,    14,    15,    16,    10
+      23,    12,     6,    21,     9,    11,     9,    11,    17,     7,
+      14,    15,    16,    24,     8,    22,    13,     8,    23,    10,
+      24,    10
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    18,    19,    20,    20,    21,    22,    22,    22,    23,
-      23,    23,    23,    23,    23
+       0,    18,    19,    20,    20,    21,    21,    22,    22,    23,
+      23,    24,    24,    24
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     6,     1,     2,     4,     3,     3,     1,     2,
-       2,     2,     1,     1,     1
+       0,     2,     6,     1,     2,     4,     5,     3,     1,     3,
+       3,     1,     1,     1
 };
 
 
@@ -1089,83 +1097,77 @@ yyreduce:
   case 2: /* S: mc_langage mc_miniAlgo mc_var List_Declarations mc_begin mc_end  */
 #line 17 "miniAlgo.y"
                                                                         {printf("bola kachir\n"); YYACCEPT;}
-#line 1093 "miniAlgo.tab.c"
+#line 1101 "miniAlgo.tab.c"
     break;
 
   case 3: /* List_Declarations: Declaration  */
 #line 20 "miniAlgo.y"
                                                                         {;}
-#line 1099 "miniAlgo.tab.c"
+#line 1107 "miniAlgo.tab.c"
     break;
 
   case 4: /* List_Declarations: List_Declarations Declaration  */
 #line 21 "miniAlgo.y"
                                                                         {;}
-#line 1105 "miniAlgo.tab.c"
+#line 1113 "miniAlgo.tab.c"
     break;
 
   case 5: /* Declaration: Idf double_point Type semicolon  */
 #line 24 "miniAlgo.y"
-                                                        {;}
-#line 1111 "miniAlgo.tab.c"
+                                                                        {;}
+#line 1119 "miniAlgo.tab.c"
     break;
 
-  case 6: /* Idf: Idf comma Idf  */
-#line 27 "miniAlgo.y"
-                                                {;}
-#line 1117 "miniAlgo.tab.c"
+  case 6: /* Declaration: const_Idf double_point CONST Type semicolon  */
+#line 25 "miniAlgo.y"
+                                                                        {;}
+#line 1125 "miniAlgo.tab.c"
     break;
 
-  case 7: /* Idf: var_name equal number  */
+  case 7: /* Idf: Idf comma Idf  */
 #line 28 "miniAlgo.y"
-                                        {;}
-#line 1123 "miniAlgo.tab.c"
+                                                {;}
+#line 1131 "miniAlgo.tab.c"
     break;
 
   case 8: /* Idf: var_name  */
 #line 29 "miniAlgo.y"
                                                 {;}
-#line 1129 "miniAlgo.tab.c"
+#line 1137 "miniAlgo.tab.c"
     break;
 
-  case 9: /* Type: CONST type_int  */
+  case 9: /* const_Idf: const_Idf comma const_Idf  */
 #line 32 "miniAlgo.y"
-                                {;}
-#line 1135 "miniAlgo.tab.c"
+                                        {;}
+#line 1143 "miniAlgo.tab.c"
     break;
 
-  case 10: /* Type: CONST type_float  */
+  case 10: /* const_Idf: var_name equal number  */
 #line 33 "miniAlgo.y"
-                                        {;}
-#line 1141 "miniAlgo.tab.c"
+                                                        {;}
+#line 1149 "miniAlgo.tab.c"
     break;
 
-  case 11: /* Type: CONST type_bool  */
-#line 34 "miniAlgo.y"
-                                        {;}
-#line 1147 "miniAlgo.tab.c"
-    break;
-
-  case 12: /* Type: type_int  */
+  case 11: /* Type: type_int  */
 #line 35 "miniAlgo.y"
-                                                {;}
-#line 1153 "miniAlgo.tab.c"
+                                        {;}
+#line 1155 "miniAlgo.tab.c"
     break;
 
-  case 13: /* Type: type_float  */
+  case 12: /* Type: type_float  */
 #line 36 "miniAlgo.y"
                                         {;}
-#line 1159 "miniAlgo.tab.c"
+#line 1161 "miniAlgo.tab.c"
     break;
 
-  case 14: /* Type: type_bool  */
+  case 13: /* Type: type_bool  */
 #line 37 "miniAlgo.y"
                                                 {;}
-#line 1165 "miniAlgo.tab.c"
+#line 1167 "miniAlgo.tab.c"
     break;
 
 
-#line 1169 "miniAlgo.tab.c"
+#line 1171 "miniAlgo.tab.c"
 
       default: break;
     }
