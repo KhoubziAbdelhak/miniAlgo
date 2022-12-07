@@ -1,0 +1,11 @@
+LANGAAGE miniAlgo 
+VAR 
+
+bsim=33 : CONST INT;
+app : INT; 
+Kms : FLOAT; 
+Response : BOOL;
+
+BEGIN 
+
+END
