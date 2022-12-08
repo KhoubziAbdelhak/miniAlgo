@@ -63,12 +63,18 @@ extern int yydebug;
     double_point = 264,            /* double_point  */
     semicolon = 265,               /* semicolon  */
     comma = 266,                   /* comma  */
-    equal = 267,                   /* equal  */
-    CONST = 268,                   /* CONST  */
-    type_int = 269,                /* type_int  */
-    type_float = 270,              /* type_float  */
-    type_bool = 271,               /* type_bool  */
-    number = 272                   /* number  */
+    CONST = 267,                   /* CONST  */
+    type_int = 268,                /* type_int  */
+    type_float = 269,              /* type_float  */
+    type_bool = 270,               /* type_bool  */
+    func = 271,                    /* func  */
+    number = 272,                  /* number  */
+    While = 273,                   /* While  */
+    If = 274,                      /* If  */
+    equal_con = 275,               /* equal_con  */
+    lessEqual_con = 276,           /* lessEqual_con  */
+    greatEqual_con = 277,          /* greatEqual_con  */
+    diff_con = 278                 /* diff_con  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif

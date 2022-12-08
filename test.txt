@@ -6,7 +6,47 @@ A83_n, app , reste : INT;
 Kms, LL6, Jn5 : FLOAT; 	
 Reponse : BOOL; 
 
+INT Function Chkoupi
+VAR
+	time = 19 : CONST INT;
+	tela3 : BOOL;
+BEGIN
+END
+
+x, y, xz :INT;
+
+
+INT Function Chkoupi
+VAR
+	time = 19 : CONST INT;
+	tela3 : BOOL;
+BEGIN
+END
+
+issam = 69 : CONST INT;
+
 
 BEGIN 
+
+Chkoupi =  5 * 50 ;
+A = 2 ;
+A = C + D *Z / E;
+
+ b=2*x/5+v*5;
+
+
+While(i>2)
+BEGIN
+B=B+2;
+END
+
+
+If (a==2) 
+BEGIN
+B=5 ;
+C=B+1 ;
+END
+
+
 
 END

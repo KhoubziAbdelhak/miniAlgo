@@ -10,24 +10,32 @@
 %%
 
 
-LANGAGE					return mc_langage;
-VAR						return mc_var;
-BEGIN					return mc_begin;
-END						return mc_end;
-miniAlgo				return mc_miniAlgo;
+LANGAGE			return mc_langage;
+VAR				return mc_var;
+BEGIN			return mc_begin;
+END				return mc_end;
+miniAlgo		return mc_miniAlgo;
 
-INT						return type_int;
-FLOAT					return type_float;
-BOOL					return type_bool;
-CONST					return CONST;
+INT				return type_int;
+FLOAT			return type_float;
+BOOL			return type_bool;
+CONST			return CONST;
+Function 		return func;
+
+While 			return While;	
+If 				return If;
+"==" 			return equal_con;
+"<=" 			return lessEqual_con;
+">=" 			return greatEqual_con;
+"<>" 			return diff_con;
+
 
 [a-zA-Z][a-zA-Z0-9_]*	return var_name;
 [1-9][0-9]*				return number;
 :						return double_point;
 ;						return semicolon;
 ,						return comma;
-=						return equal;
-
+[-+*/()=<>]				{return yytext[0];}
 
 [ \t]			;
 [\n]			line_number++;
