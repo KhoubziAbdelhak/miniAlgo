@@ -68,20 +68,35 @@ extern int yydebug;
     type_float = 269,              /* type_float  */
     type_bool = 270,               /* type_bool  */
     func = 271,                    /* func  */
-    number = 272,                  /* number  */
+    mc_return = 272,               /* mc_return  */
     While = 273,                   /* While  */
     If = 274,                      /* If  */
     equal_con = 275,               /* equal_con  */
     lessEqual_con = 276,           /* lessEqual_con  */
     greatEqual_con = 277,          /* greatEqual_con  */
-    diff_con = 278                 /* diff_con  */
+    diff_con = 278,                /* diff_con  */
+    ICONST = 279,                  /* ICONST  */
+    FCONST = 280,                  /* FCONST  */
+    BCONST = 281                   /* BCONST  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+union YYSTYPE
+{
+#line 16 "miniAlgo.y"
+
+	int int_val;
+	float float_val;
+	bool bool_val;
+	struct list_t* symtab_item;
+
+#line 97 "miniAlgo.tab.h"
+
+};
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
