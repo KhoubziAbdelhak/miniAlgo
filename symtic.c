@@ -30,7 +30,6 @@ void insert(char *name, int len, int type, int lineno) {
 	while((l != NULL) && (strcmp(name, l->st_name) != 0)) l = l->next;
 
 
-
 	/* variable not yet in table */
 	if (l == NULL){
 		/* check if we are really declaring */
@@ -55,6 +54,7 @@ void insert(char *name, int len, int type, int lineno) {
 	}
 	/* found in table */
 	else{
+		
 		// just add line number
 		if(declare == 0){
 			/* find last reference */
@@ -104,6 +104,7 @@ list_t *lookup(char *name) {
 }
 
 
+
 void hide_scope(){ /* hide the current scope */
 	printf("enter the hide_scope func\n");
 	list_t *l;
@@ -134,20 +135,22 @@ void incr_scope(){ /* go to next scope */
 
 void symtab_dump(FILE * of){  /* dump file */
   int i;
-  fprintf(of,"------------ ------ ------ ------------\n");
-  fprintf(of,"Name         Type   Scope  Line Numbers\n");
-  fprintf(of,"------------ ------ ------ ------------\n");
+  fprintf(of,"------------ ------ ------------------- ----------- ------------\n");
+  fprintf(of,"Name         Type 		Value 	   Scope  Line Numbers\n");
+  fprintf(of,"------------ ------ ------------------- ----------- ------------\n");
   for (i=0; i < SIZE; ++i){ 
 	if (hash_table[i] != NULL){ 
 		list_t *l = hash_table[i];
 		while (l != NULL){ 
 			RefList *t = l->lines;
 			fprintf(of,"%-12s ",l->st_name);
-			if (l->st_type == INT_TYPE)                fprintf(of,"%-7s","int");
-			else fprintf(of,"%-7s","undef"); // if UNDEF or 0
-			fprintf(of,"  %d  ",l->scope);
+			if (l->st_type == INT_TYPE)           {    fprintf(of,"%-7s","int");   fprintf(of, "%4d 		", l->st_ival);}
+			if (l->st_type == FLOAT_TYPE)          {      fprintf(of,"%-7s","float"); fprintf(of, "%4f 		", l->st_fval); }
+			if (l->st_type == BOOL_TYPE)            {    fprintf(of,"%-7s","bool"); fprintf(of, "%4d 		", l->st_bval); }
+			if(l->st_type == UNDEF) fprintf(of,"%-7s","undef"); // if UNDEF or 0
+			fprintf(of,"   %d ",l->scope);
 			while (t != NULL){
-				fprintf(of,"%4d ",t->lineno);
+				fprintf(of," 	%4d ",t->lineno);
 				t = t->next;
 			}
 			fprintf(of,"\n");

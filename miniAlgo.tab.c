@@ -79,9 +79,15 @@
 	extern int lineno;
 	void yyerror(char *s);
 
+	int tempInt;
+	float tempFloat;
+	bool tempBool;
+
+	int vi = 0;
 
 
-#line 85 "miniAlgo.tab.c"
+
+#line 91 "miniAlgo.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -496,7 +502,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   106
+#define YYLAST   110
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  36
@@ -505,7 +511,7 @@ union yyalloc
 /* YYNRULES -- Number of rules.  */
 #define YYNRULES  49
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  102
+#define YYNSTATES  103
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   281
@@ -557,11 +563,11 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    36,    36,    36,    36,    39,    40,    43,    44,    45,
-      46,    49,    49,    49,    52,    54,    55,    58,    59,    61,
-      62,    63,    64,    67,    68,    69,    72,    73,    74,    77,
-      78,    79,    82,    85,    86,    87,    90,    91,    92,    95,
-      96,   101,   104,   106,   109,   110,   111,   112,   113,   114
+       0,    42,    42,    42,    42,    45,    46,    49,    50,    51,
+      52,    55,    55,    55,    58,    60,    61,    64,    65,    67,
+      68,    69,    70,    73,    74,    75,    78,    79,    80,    83,
+      84,    85,    88,    91,    92,    93,    96,    97,    98,   101,
+     102,   107,   110,   112,   115,   116,   117,   118,   119,   120
 };
 #endif
 
@@ -596,7 +602,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-55)
+#define YYPACT_NINF (-56)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -610,17 +616,17 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-       3,     9,    44,    48,   -55,   -55,    63,    40,   -55,   -55,
-     -55,    63,   -55,   -55,     2,    61,    56,    -2,    75,   -55,
-      20,    79,    64,    78,   -55,   -55,   -55,   -55,   -55,   -55,
-      33,    82,   -55,    -2,    20,    85,    67,    65,    65,    -4,
-     -55,   -55,   -55,   -55,   -55,   -55,    86,    90,    -7,    -2,
-      92,    93,   -55,   -55,   -55,    63,    -7,   -55,    -8,    52,
-     -55,     8,    68,    33,    33,    60,    51,   -55,    -7,    -7,
-      -7,    -7,    -2,    -2,    -2,    -2,    -2,    -2,   -55,    29,
-      31,    33,   -55,    52,    52,   -55,   -55,   -55,   -55,   -55,
-     -55,   -55,   -55,   -55,   -55,    46,    94,   -55,    95,    96,
-     -55,   -55
+       1,     9,    32,    11,   -56,   -56,    63,    12,   -56,   -56,
+     -56,    63,   -56,   -56,     2,    58,    39,    -2,    64,   -56,
+      68,    79,    78,    83,   -56,   -56,   -56,   -56,   -56,   -56,
+      26,    62,   -56,    81,    68,    12,    82,    86,    69,    65,
+      65,    -4,   -56,   -56,   -56,   -56,   -56,    85,    93,    -7,
+      -2,    94,    95,   -56,   -56,   -56,    63,    -7,   -56,    -8,
+       5,   -56,     8,    66,    26,    26,    60,    51,   -56,    -7,
+      -7,    -7,    -7,    -2,    -2,    -2,    -2,    -2,    -2,   -56,
+      30,    46,    26,   -56,     5,     5,   -56,   -56,   -56,   -56,
+     -56,   -56,   -56,   -56,   -56,   -56,    33,    96,   -56,    92,
+      98,   -56,   -56
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -631,30 +637,30 @@ static const yytype_int8 yydefact[] =
        0,     0,     0,     0,     1,     2,    10,    16,    23,    24,
       25,     3,     5,     9,     0,     0,     0,     0,     0,     6,
        0,     0,     0,     0,    11,    22,    20,    19,    21,    18,
-      28,     0,    15,     0,     0,     0,     0,     0,     0,     0,
-      26,    29,    30,    31,     7,    17,     0,     0,     0,     0,
-       0,     0,     4,    27,     8,    10,     0,    40,     0,    35,
-      38,     0,     0,    28,    28,     0,     0,    32,     0,     0,
-       0,     0,     0,     0,     0,     0,     0,     0,    43,     0,
-       0,    28,    39,    33,    34,    36,    37,    44,    47,    48,
-      49,    45,    46,    41,    42,     0,     0,    12,     0,     0,
-      14,    13
+      28,     0,    16,    15,     0,     0,    17,     0,     0,     0,
+       0,     0,    26,    29,    30,    31,     7,     0,     0,     0,
+       0,     0,     0,     4,    27,     8,    10,     0,    40,     0,
+      35,    38,     0,     0,    28,    28,     0,     0,    32,     0,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,    43,
+       0,     0,    28,    39,    33,    34,    36,    37,    44,    47,
+      48,    49,    45,    46,    41,    42,     0,     0,    12,     0,
+       0,    14,    13
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -55,   -55,   -55,   -55,    45,    -3,   -55,   -55,   -55,   -55,
-     -55,   -55,   -17,     6,   -54,   -34,   -55,    50,    17,    18,
-     -55,   -55,    66,   -55
+     -56,   -56,   -56,   -56,    47,    -3,   -56,   -56,   -56,   -56,
+      87,    84,   -17,     6,   -55,   -34,   -56,    49,    16,    17,
+     -56,   -56,    70,   -56
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     2,     6,    18,    11,    12,    13,    35,    99,    97,
-      14,    15,    57,    16,    39,    40,    41,    58,    59,    60,
-      42,    43,    50,    62
+       0,     2,     6,    18,    11,    12,    13,    37,   100,    98,
+      14,    15,    58,    16,    41,    42,    43,    59,    60,    61,
+      44,    45,    51,    63
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -662,32 +668,34 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      29,    25,    67,    52,    36,    53,    25,     1,    19,    79,
-      80,    20,     3,    21,    37,    38,    45,    26,    27,    28,
-      68,    69,    26,    27,    28,    56,    31,    95,    72,    73,
-      74,    75,    61,     8,     9,    10,    93,    36,    94,    36,
-      46,    36,    76,    77,     4,    53,    53,    37,    38,    37,
-      38,    37,    38,     5,    36,    87,    88,    89,    90,    91,
-      92,    53,    19,    96,    37,    38,    81,    17,     7,    22,
-      23,     7,    24,     8,     9,    10,     8,     9,    10,    68,
-      69,    30,    70,    71,    82,    83,    84,    32,    85,    86,
-      34,    33,    44,    47,    48,    55,    54,    49,    63,    64,
-      65,    78,    98,   101,    51,   100,    66
+      29,    25,    68,    53,    38,     1,    25,    54,    19,    80,
+      81,    20,     3,    21,    39,    40,     5,    26,    27,    28,
+      69,    70,    26,    27,    28,    57,    31,    96,    73,    74,
+      75,    76,     4,    62,    38,    71,    72,    94,    38,    17,
+      47,    38,    77,    78,    39,    40,    54,    54,    39,    40,
+      97,    39,    40,    95,    38,    24,    88,    89,    90,    91,
+      92,    93,    54,    19,    39,    40,    82,    22,     7,    23,
+      30,     7,    46,     8,     9,    10,     8,     9,    10,    69,
+      70,     8,     9,    10,    83,    84,    85,    32,    86,    87,
+      34,    35,    21,    23,    48,    55,    49,    50,    56,    79,
+      64,    65,   101,    66,    99,   102,    67,    36,    33,     0,
+      52
 };
 
 static const yytype_int8 yycheck[] =
 {
-      17,     8,    10,     7,     8,    39,     8,     4,    11,    63,
-      64,     9,     3,    11,    18,    19,    33,    24,    25,    26,
-      28,    29,    24,    25,    26,    32,    20,    81,    20,    21,
-      22,    23,    49,    13,    14,    15,     7,     8,     7,     8,
-      34,     8,    34,    35,     0,    79,    80,    18,    19,    18,
-      19,    18,    19,     5,     8,    72,    73,    74,    75,    76,
-      77,    95,    65,    17,    18,    19,     6,    27,     8,     8,
-       9,     8,    16,    13,    14,    15,    13,    14,    15,    28,
-      29,     6,    30,    31,    33,    68,    69,     8,    70,    71,
-      12,    27,    10,     8,    27,     5,    10,    32,     6,     6,
-      55,    33,     8,     7,    38,    10,    56
+      17,     8,    10,     7,     8,     4,     8,    41,    11,    64,
+      65,     9,     3,    11,    18,    19,     5,    24,    25,    26,
+      28,    29,    24,    25,    26,    32,    20,    82,    20,    21,
+      22,    23,     0,    50,     8,    30,    31,     7,     8,    27,
+      34,     8,    34,    35,    18,    19,    80,    81,    18,    19,
+      17,    18,    19,     7,     8,    16,    73,    74,    75,    76,
+      77,    78,    96,    66,    18,    19,     6,     9,     8,    11,
+       6,     8,    10,    13,    14,    15,    13,    14,    15,    28,
+      29,    13,    14,    15,    33,    69,    70,     8,    71,    72,
+      12,     8,    11,    11,     8,    10,    27,    32,     5,    33,
+       6,     6,    10,    56,     8,     7,    57,    23,    21,    -1,
+      40
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
@@ -696,15 +704,15 @@ static const yytype_int8 yystos[] =
 {
        0,     4,    37,     3,     0,     5,    38,     8,    13,    14,
       15,    40,    41,    42,    46,    47,    49,    27,    39,    41,
-       9,    11,     8,     9,    16,     8,    24,    25,    26,    48,
-       6,    49,     8,    27,    12,    43,     8,    18,    19,    50,
-      51,    52,    56,    57,    10,    48,    49,     8,    27,    32,
-      58,    58,     7,    51,    10,     5,    32,    48,    53,    54,
-      55,    48,    59,     6,     6,    40,    53,    10,    28,    29,
-      30,    31,    20,    21,    22,    23,    34,    35,    33,    50,
-      50,     6,    33,    54,    54,    55,    55,    48,    48,    48,
-      48,    48,    48,     7,     7,    50,    17,    45,     8,    44,
-      10,     7
+       9,    11,     9,    11,    16,     8,    24,    25,    26,    48,
+       6,    49,     8,    46,    12,     8,    47,    43,     8,    18,
+      19,    50,    51,    52,    56,    57,    10,    49,     8,    27,
+      32,    58,    58,     7,    51,    10,     5,    32,    48,    53,
+      54,    55,    48,    59,     6,     6,    40,    53,    10,    28,
+      29,    30,    31,    20,    21,    22,    23,    34,    35,    33,
+      50,    50,     6,    33,    54,    54,    55,    55,    48,    48,
+      48,    48,    48,    48,     7,     7,    50,    17,    45,     8,
+      44,    10,     7
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
@@ -721,7 +729,7 @@ static const yytype_int8 yyr1[] =
 static const yytype_int8 yyr2[] =
 {
        0,     2,     0,     0,     9,     1,     2,     4,     5,     1,
-       0,     0,     0,    11,     3,     3,     1,     4,     3,     1,
+       0,     0,     0,    11,     3,     3,     1,     3,     3,     1,
        1,     1,     1,     1,     1,     1,     1,     2,     0,     1,
        1,     1,     4,     3,     3,     1,     3,     3,     1,     3,
        1,     5,     5,     3,     3,     3,     3,     3,     3,     3
@@ -1188,283 +1196,283 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* $@1: %empty  */
-#line 36 "miniAlgo.y"
+#line 42 "miniAlgo.y"
                                       {declare=1;}
-#line 1194 "miniAlgo.tab.c"
+#line 1202 "miniAlgo.tab.c"
     break;
 
   case 3: /* $@2: %empty  */
-#line 36 "miniAlgo.y"
+#line 42 "miniAlgo.y"
                                                                      {declare=0;}
-#line 1200 "miniAlgo.tab.c"
+#line 1208 "miniAlgo.tab.c"
     break;
 
   case 4: /* S: mc_langage mc_miniAlgo mc_var $@1 List_Declarations $@2 mc_begin List_Instructions mc_end  */
-#line 36 "miniAlgo.y"
+#line 42 "miniAlgo.y"
                                                                                                                                 {printf("\nbola kachir\n\n"); YYACCEPT;}
-#line 1206 "miniAlgo.tab.c"
+#line 1214 "miniAlgo.tab.c"
     break;
 
   case 5: /* List_Declarations: Declaration  */
-#line 39 "miniAlgo.y"
+#line 45 "miniAlgo.y"
                                                                         {;}
-#line 1212 "miniAlgo.tab.c"
+#line 1220 "miniAlgo.tab.c"
     break;
 
   case 6: /* List_Declarations: List_Declarations Declaration  */
-#line 40 "miniAlgo.y"
+#line 46 "miniAlgo.y"
                                                                         {;}
-#line 1218 "miniAlgo.tab.c"
+#line 1226 "miniAlgo.tab.c"
     break;
 
   case 7: /* Declaration: Idf double_point Type semicolon  */
-#line 43 "miniAlgo.y"
+#line 49 "miniAlgo.y"
                                                                                         {;}
-#line 1224 "miniAlgo.tab.c"
+#line 1232 "miniAlgo.tab.c"
     break;
 
   case 8: /* Declaration: const_Idf double_point CONST Type semicolon  */
-#line 44 "miniAlgo.y"
+#line 50 "miniAlgo.y"
                                                                                         {;}
-#line 1230 "miniAlgo.tab.c"
+#line 1238 "miniAlgo.tab.c"
     break;
 
   case 9: /* Declaration: function  */
-#line 45 "miniAlgo.y"
-                                                                                                                                                                        {;}
-#line 1236 "miniAlgo.tab.c"
+#line 51 "miniAlgo.y"
+                                                                                                                        {;}
+#line 1244 "miniAlgo.tab.c"
     break;
 
   case 11: /* $@3: %empty  */
-#line 49 "miniAlgo.y"
+#line 55 "miniAlgo.y"
                     {incr_scope();}
-#line 1242 "miniAlgo.tab.c"
+#line 1250 "miniAlgo.tab.c"
     break;
 
   case 12: /* $@4: %empty  */
-#line 49 "miniAlgo.y"
+#line 55 "miniAlgo.y"
                                                                                                         {hide_scope();}
-#line 1248 "miniAlgo.tab.c"
+#line 1256 "miniAlgo.tab.c"
     break;
 
   case 13: /* function: Type func $@3 var_name mc_var List_Declarations mc_begin List_Instructions Return $@4 mc_end  */
-#line 49 "miniAlgo.y"
+#line 55 "miniAlgo.y"
                                                                                                                                         {printf("\nthere is a function\n");}
-#line 1254 "miniAlgo.tab.c"
+#line 1262 "miniAlgo.tab.c"
     break;
 
   case 14: /* Return: mc_return var_name semicolon  */
-#line 52 "miniAlgo.y"
+#line 58 "miniAlgo.y"
                                         {;}
-#line 1260 "miniAlgo.tab.c"
+#line 1268 "miniAlgo.tab.c"
     break;
 
-  case 15: /* Idf: Idf comma var_name  */
-#line 54 "miniAlgo.y"
+  case 15: /* Idf: Idf comma Idf  */
+#line 60 "miniAlgo.y"
                                         {;}
-#line 1266 "miniAlgo.tab.c"
+#line 1274 "miniAlgo.tab.c"
     break;
 
   case 16: /* Idf: var_name  */
-#line 55 "miniAlgo.y"
+#line 61 "miniAlgo.y"
                                                 {;}
-#line 1272 "miniAlgo.tab.c"
+#line 1280 "miniAlgo.tab.c"
     break;
 
-  case 17: /* const_Idf: const_Idf var_name '=' Value  */
-#line 58 "miniAlgo.y"
+  case 17: /* const_Idf: const_Idf comma const_Idf  */
+#line 64 "miniAlgo.y"
                                                 {;}
-#line 1278 "miniAlgo.tab.c"
+#line 1286 "miniAlgo.tab.c"
     break;
 
   case 18: /* const_Idf: var_name '=' Value  */
-#line 59 "miniAlgo.y"
-                                                                {;}
-#line 1284 "miniAlgo.tab.c"
+#line 65 "miniAlgo.y"
+                                                                                {;}
+#line 1292 "miniAlgo.tab.c"
     break;
 
   case 19: /* Value: FCONST  */
-#line 61 "miniAlgo.y"
+#line 67 "miniAlgo.y"
                 {;}
-#line 1290 "miniAlgo.tab.c"
+#line 1298 "miniAlgo.tab.c"
     break;
 
   case 20: /* Value: ICONST  */
-#line 62 "miniAlgo.y"
+#line 68 "miniAlgo.y"
                         {;}
-#line 1296 "miniAlgo.tab.c"
+#line 1304 "miniAlgo.tab.c"
     break;
 
   case 21: /* Value: BCONST  */
-#line 63 "miniAlgo.y"
+#line 69 "miniAlgo.y"
                         {;}
-#line 1302 "miniAlgo.tab.c"
+#line 1310 "miniAlgo.tab.c"
     break;
 
   case 22: /* Value: var_name  */
-#line 64 "miniAlgo.y"
+#line 70 "miniAlgo.y"
                     {;}
-#line 1308 "miniAlgo.tab.c"
+#line 1316 "miniAlgo.tab.c"
     break;
 
   case 23: /* Type: type_int  */
-#line 67 "miniAlgo.y"
-                                        {;}
-#line 1314 "miniAlgo.tab.c"
+#line 73 "miniAlgo.y"
+                                        {yylval.symtab_item->st_type = INT_TYPE;}
+#line 1322 "miniAlgo.tab.c"
     break;
 
   case 24: /* Type: type_float  */
-#line 68 "miniAlgo.y"
-                                        {;}
-#line 1320 "miniAlgo.tab.c"
+#line 74 "miniAlgo.y"
+                                        {yylval.symtab_item->st_type = FLOAT_TYPE;}
+#line 1328 "miniAlgo.tab.c"
     break;
 
   case 25: /* Type: type_bool  */
-#line 69 "miniAlgo.y"
-                                                {;}
-#line 1326 "miniAlgo.tab.c"
+#line 75 "miniAlgo.y"
+                                                {yylval.symtab_item->st_type = BOOL_TYPE;}
+#line 1334 "miniAlgo.tab.c"
     break;
 
   case 26: /* List_Instructions: Instruction  */
-#line 72 "miniAlgo.y"
+#line 78 "miniAlgo.y"
                                                                         {;}
-#line 1332 "miniAlgo.tab.c"
+#line 1340 "miniAlgo.tab.c"
     break;
 
   case 27: /* List_Instructions: List_Instructions Instruction  */
-#line 73 "miniAlgo.y"
+#line 79 "miniAlgo.y"
                                                                         {;}
-#line 1338 "miniAlgo.tab.c"
+#line 1346 "miniAlgo.tab.c"
     break;
 
   case 29: /* Instruction: Affectation  */
-#line 77 "miniAlgo.y"
+#line 83 "miniAlgo.y"
                                         {;}
-#line 1344 "miniAlgo.tab.c"
+#line 1352 "miniAlgo.tab.c"
     break;
 
   case 30: /* Instruction: Boucle  */
-#line 78 "miniAlgo.y"
+#line 84 "miniAlgo.y"
                                                 {printf("\nthere is a Boucle\n");}
-#line 1350 "miniAlgo.tab.c"
+#line 1358 "miniAlgo.tab.c"
     break;
 
   case 31: /* Instruction: If_statment  */
-#line 79 "miniAlgo.y"
+#line 85 "miniAlgo.y"
                                                 {printf("\nthere is a If_statment\n");}
-#line 1356 "miniAlgo.tab.c"
+#line 1364 "miniAlgo.tab.c"
     break;
 
   case 32: /* Affectation: var_name '=' exp semicolon  */
-#line 82 "miniAlgo.y"
+#line 88 "miniAlgo.y"
                                                 {;}
-#line 1362 "miniAlgo.tab.c"
+#line 1370 "miniAlgo.tab.c"
     break;
 
   case 33: /* exp: exp '+' e1  */
-#line 85 "miniAlgo.y"
+#line 91 "miniAlgo.y"
                         {;}
-#line 1368 "miniAlgo.tab.c"
+#line 1376 "miniAlgo.tab.c"
     break;
 
   case 34: /* exp: exp '-' e1  */
-#line 86 "miniAlgo.y"
+#line 92 "miniAlgo.y"
                         {;}
-#line 1374 "miniAlgo.tab.c"
+#line 1382 "miniAlgo.tab.c"
     break;
 
   case 35: /* exp: e1  */
-#line 87 "miniAlgo.y"
+#line 93 "miniAlgo.y"
                                 {;}
-#line 1380 "miniAlgo.tab.c"
+#line 1388 "miniAlgo.tab.c"
     break;
 
   case 36: /* e1: e1 '*' e2  */
-#line 90 "miniAlgo.y"
+#line 96 "miniAlgo.y"
                         {;}
-#line 1386 "miniAlgo.tab.c"
+#line 1394 "miniAlgo.tab.c"
     break;
 
   case 37: /* e1: e1 '/' e2  */
-#line 91 "miniAlgo.y"
+#line 97 "miniAlgo.y"
                         {;}
-#line 1392 "miniAlgo.tab.c"
+#line 1400 "miniAlgo.tab.c"
     break;
 
   case 38: /* e1: e2  */
-#line 92 "miniAlgo.y"
+#line 98 "miniAlgo.y"
                                 {;}
-#line 1398 "miniAlgo.tab.c"
+#line 1406 "miniAlgo.tab.c"
     break;
 
   case 39: /* e2: '(' exp ')'  */
-#line 95 "miniAlgo.y"
+#line 101 "miniAlgo.y"
                         {;}
-#line 1404 "miniAlgo.tab.c"
+#line 1412 "miniAlgo.tab.c"
     break;
 
   case 40: /* e2: Value  */
-#line 96 "miniAlgo.y"
+#line 102 "miniAlgo.y"
                                 {;}
-#line 1410 "miniAlgo.tab.c"
+#line 1418 "miniAlgo.tab.c"
     break;
 
   case 41: /* Boucle: While Condition_Statment mc_begin List_Instructions mc_end  */
-#line 101 "miniAlgo.y"
+#line 107 "miniAlgo.y"
                                                                         {;}
-#line 1416 "miniAlgo.tab.c"
+#line 1424 "miniAlgo.tab.c"
     break;
 
   case 42: /* If_statment: If Condition_Statment mc_begin List_Instructions mc_end  */
-#line 104 "miniAlgo.y"
+#line 110 "miniAlgo.y"
                                                                       {;}
-#line 1422 "miniAlgo.tab.c"
+#line 1430 "miniAlgo.tab.c"
     break;
 
   case 43: /* Condition_Statment: '(' Condition ')'  */
-#line 106 "miniAlgo.y"
+#line 112 "miniAlgo.y"
                                         {;}
-#line 1428 "miniAlgo.tab.c"
+#line 1436 "miniAlgo.tab.c"
     break;
 
   case 44: /* Condition: Value equal_con Value  */
-#line 109 "miniAlgo.y"
+#line 115 "miniAlgo.y"
                                                 {;}
-#line 1434 "miniAlgo.tab.c"
+#line 1442 "miniAlgo.tab.c"
     break;
 
   case 45: /* Condition: Value '<' Value  */
-#line 110 "miniAlgo.y"
+#line 116 "miniAlgo.y"
                                                                 {;}
-#line 1440 "miniAlgo.tab.c"
+#line 1448 "miniAlgo.tab.c"
     break;
 
   case 46: /* Condition: Value '>' Value  */
-#line 111 "miniAlgo.y"
+#line 117 "miniAlgo.y"
                                                         {;}
-#line 1446 "miniAlgo.tab.c"
+#line 1454 "miniAlgo.tab.c"
     break;
 
   case 47: /* Condition: Value lessEqual_con Value  */
-#line 112 "miniAlgo.y"
+#line 118 "miniAlgo.y"
                                                 {;}
-#line 1452 "miniAlgo.tab.c"
+#line 1460 "miniAlgo.tab.c"
     break;
 
   case 48: /* Condition: Value greatEqual_con Value  */
-#line 113 "miniAlgo.y"
+#line 119 "miniAlgo.y"
                                                 {;}
-#line 1458 "miniAlgo.tab.c"
+#line 1466 "miniAlgo.tab.c"
     break;
 
   case 49: /* Condition: Value diff_con Value  */
-#line 114 "miniAlgo.y"
+#line 120 "miniAlgo.y"
                                                         {;}
-#line 1464 "miniAlgo.tab.c"
+#line 1472 "miniAlgo.tab.c"
     break;
 
 
-#line 1468 "miniAlgo.tab.c"
+#line 1476 "miniAlgo.tab.c"
 
       default: break;
     }
@@ -1657,7 +1665,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 119 "miniAlgo.y"
+#line 125 "miniAlgo.y"
 
 
 int main(void) {
