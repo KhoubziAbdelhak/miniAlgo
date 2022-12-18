@@ -10,6 +10,12 @@
 	extern int lineno;
 	void yyerror(char *s);
 
+	int tempInt;
+	float tempFloat;
+	bool tempBool;
+
+	int vi = 0;
+
 
 %}
 
@@ -33,7 +39,7 @@
 
 %%
 
-S:	mc_langage mc_miniAlgo mc_var {declare=1;} List_Declarations {declare=0;} mc_begin List_Instructions mc_end		{printf("\nbola kachir\n\n"); YYACCEPT;}	
+S:	mc_langage mc_miniAlgo mc_var {declare=1;} List_Declarations {declare=0;} mc_begin List_Instructions  mc_end		{printf("\nbola kachir\n\n"); YYACCEPT;}	
 	;
 
 List_Declarations: Declaration						{;}
@@ -42,7 +48,7 @@ List_Declarations: Declaration						{;}
 
 Declaration: Idf double_point Type semicolon						{;}
 		   | const_Idf double_point CONST Type semicolon 			{;}
-		   | function 																		{;}
+		   | function 												{;}
 		   | 
 		   ;
 
@@ -51,12 +57,12 @@ function: Type func {incr_scope();} var_name mc_var List_Declarations mc_begin L
 
 Return: mc_return var_name semicolon 	{;}
 
-Idf: Idf comma var_name 		{;}
+Idf: Idf comma Idf   			{;}
    | var_name					{;}
    ;
 
-const_Idf: const_Idf var_name '=' Value		{;}
-		 | var_name '=' Value 				{;}
+const_Idf: const_Idf comma const_Idf		{;}
+		 | var_name '=' Value 						{;}
 
 Value: FCONST 	{;}
 	 | ICONST 	{;}
@@ -64,9 +70,9 @@ Value: FCONST 	{;}
 	 | var_name {;}
 	 ;
 
-Type: type_int 		 		{;} 
-	| type_float			{;}
-	| type_bool				{;}
+Type: type_int 		 		{yylval.symtab_item->st_type = INT_TYPE;} 
+	| type_float			{yylval.symtab_item->st_type = FLOAT_TYPE;}
+	| type_bool				{yylval.symtab_item->st_type = BOOL_TYPE;}
 	;
 
 List_Instructions: Instruction 						{;}

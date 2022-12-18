@@ -1,17 +1,22 @@
 LANGAGE miniAlgo 
 VAR 
 
-/* begin of declaration ma nigga
+{ begin of declaration ma nigga
 second comment
-*/
+i can make comment as i want to 
+}
 
-bism=33.33 : CONST INT;
-A83_n, app , reste : INT;	
+A83_n : INT;
+app, try : INT;
+reste : INT;	
 
+isTime : BOOL;
+
+
+ff : FLOAT;
 
 INT Function Chkoupi
 VAR
-	time = 19 : CONST INT;
 	app : FLOAT;
 BEGIN
 	Return tela3;
@@ -19,30 +24,12 @@ END
 
 
 
-FLOAT Function damn 
-VAR
-	time = 44: CONST INT;
-	isTime: BOOL;
-BEGIN
-	time = time + 1;
-	Return time;
-END
 
+{ issam = 69 : CONST INT; }
 
-issam = 69 : CONST INT;
-
-app : INT;
 
 
 BEGIN 
-
-
-
-If (a==2) 
-BEGIN
-B=5 ;
-C=B+1 ;
-END
 
 
 

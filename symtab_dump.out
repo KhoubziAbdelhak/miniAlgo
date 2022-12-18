@@ -1,8 +1,9 @@
------------- ------ ------ ------------
-Name         Type   Scope  Line Numbers
------------- ------ ------ ------------
-bism         undef    0     8 
-A83_n        undef    0     9 
-app          undef    0     9 
-issam        undef    0    32 
-reste        undef    0     9 
+------------ ------ ------------------- ----------- ------------
+Name         Type 		Value 	   Scope  Line Numbers
+------------ ------ ------------------- ----------- ------------
+A83_n        int       0 		   0  	   6 
+app          undef     0  	   7 
+reste        int       0 		   0  	   8 
+isTime       bool      0 		   0  	  10 
+ff           int       0 		   0  	  13 
+try          int       0 		   0  	   7 

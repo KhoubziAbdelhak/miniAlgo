@@ -24,6 +24,7 @@ typedef struct list_t {
 	int scope;
 	RefList *lines;
 
+	int isConst;
 	int inf_type;
 
 	int st_ival;
@@ -31,6 +32,7 @@ typedef struct list_t {
 	bool st_bval;
 	
 	int st_type;
+
 	struct list_t *next;
 } list_t;
 

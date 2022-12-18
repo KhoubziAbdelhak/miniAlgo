@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include "miniAlgo.tab.h"
 #include "symtic.h"
+	
+	extern int vi;
 	int yylex();
 	void yyerror(char *s);
 	int lineno = 1;
@@ -23,12 +25,10 @@ FCONST		"0"|{digit}*"."{digit}+
 
 %%
 
-"//".*                  { printf("Eat up comment at line %d\n", lineno); } 
 
-"/*"                    { printf("Eat up comment from line %d ", lineno); BEGIN(ML_COMMENT); }
-<ML_COMMENT>"*/"        { printf("to line %d\n", lineno); BEGIN(INITIAL); }
-<ML_COMMENT>[^*\n]+		
-<ML_COMMENT>"*"			
+"{"                    { printf("Eat up comment from line %d ", lineno); BEGIN(ML_COMMENT); }
+<ML_COMMENT>"}"        { printf("to line %d\n", lineno); BEGIN(INITIAL); }
+<ML_COMMENT>[^}n]+		
 <ML_COMMENT>"\n"        { lineno += 1; }
 
 
@@ -67,12 +67,14 @@ If 				return If;
 
 {ICONST} 			{
 	yylval.int_val = atoi(yytext);
+	vi = INT_TYPE;
 	return ICONST;
 }
 
 
 {FCONST} 			{
 	yylval.float_val = atoi(yytext);
+	vi = FLOAT_TYPE;
 	return FCONST;
 }
 
@@ -80,6 +82,7 @@ If 				return If;
 {BCONST} 			{
 	if(strcmp(yytext, "true") == 0) yylval.bool_val = true;
 	if(strcmp(yytext, "false") == 0) yylval.bool_val = false;
+	vi = BOOL_TYPE;
 	return BCONST;
 }
 
